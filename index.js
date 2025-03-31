@@ -203,11 +203,7 @@ app.post("/api/waitlist", async (req, res) => {
               <li>📊 Early access to exclusive features and tools</li>
               <li>📚 Access to weekly blog posts on how to strategically find savings</li>
             </ul>
-    
-            <p>To get started, please confirm your email by clicking the button below:</p>
-    
-            <a href="${confirmationLink}" class="button">Confirm Your Email</a>
-    
+            
             <h3>As an added bonus for joining the waitlist:</h3>
             <p>🎉 You now have <strong>unlimited free access</strong> to our services while we’re in beta!</p>
     
