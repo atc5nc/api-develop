@@ -237,6 +237,22 @@ app.post("/api/waitlist", async (req, res) => {
       `,
     });
 
+    // Send notification to Alston
+    await resend.emails.send({
+      from: `"Prox Alerts" <notify@joinprox.com>`,
+      to: "alston@joinprox.com",
+      subject: "New Waitlist Signup",
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>ZIP Code:</strong> ${zip_code}</p>
+        <p><strong>Device Preference:</strong> ${device_preference}</p>
+        <p><strong>Preferred Retailers:</strong> ${preferred_retailers.join(", ")}</p>
+        <p><strong>Feedback:</strong> ${feedback || "No feedback provided"}</p>
+        <p><strong>Time:</strong> ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}</p>
+      `,
+    });
+
     console.log("Confirmation email sent to:", email);
 
     res.json({
